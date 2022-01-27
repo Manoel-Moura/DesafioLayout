@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'cores.dart';
+import 'colors.dart';
 import 'bottom.dart';
 
 void main() {
@@ -17,6 +17,7 @@ class DesafioLayout extends StatefulWidget {
 
 class _DesafioLayoutState extends State<DesafioLayout> {
   bool _visibilidade = true;
+  bool _mudaCor = false;
   String _valor1 = '12';
   String _valor2 = '20';
   String _valor3 = '20';
@@ -31,12 +32,15 @@ class _DesafioLayoutState extends State<DesafioLayout> {
         _valor2 = '20';
         _valor3 = '20';
         _salario = '34.000,00';
+        _mudaCor = false;
       } else {
         _valor1 = '*';
         _valor2 = '*';
         _valor3 = '*';
         _salario = '--.---,--';
+        _mudaCor = true;
       }
+      Cores.mudaCor(_mudaCor);
     });
   }
 
@@ -45,7 +49,7 @@ class _DesafioLayoutState extends State<DesafioLayout> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Cores.myBackground,
+        backgroundColor: Cores.corDeFundo,
         body: SafeArea(
           child: Column(
             children: [
@@ -67,7 +71,7 @@ class _DesafioLayoutState extends State<DesafioLayout> {
                           'Olá',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Cores.purple,
+                              color: Cores.roxoClaro,
                               fontFamily: 'Marker_Felt',
                               fontSize: 15.0),
                         ),
@@ -75,7 +79,7 @@ class _DesafioLayoutState extends State<DesafioLayout> {
                           'Ziraldo!',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: Cores.darkPurple,
+                            color: Cores.roxoEscuro,
                             fontFamily: 'Marker_Felt',
                             fontSize: 38.0,
                           ),
@@ -90,7 +94,7 @@ class _DesafioLayoutState extends State<DesafioLayout> {
                 children: [
                   Text('Parabéns! Este mês você fez ',
                       style: TextStyle(
-                          color: Cores.purple,
+                          color: Cores.roxoClaro,
                           fontFamily: 'Marker_Felt',
                           fontSize: 15.0)),
                   IconButton(
@@ -100,7 +104,7 @@ class _DesafioLayoutState extends State<DesafioLayout> {
                       icon: Icon(_visibilidade
                           ? Icons.visibility
                           : Icons.visibility_off),
-                      color: Cores.deepPurple),
+                      color: Cores.corDosValores),
                 ],
               ),
               Card(
@@ -121,20 +125,20 @@ class _DesafioLayoutState extends State<DesafioLayout> {
                             margin: EdgeInsets.only(left: 50),
                             child: Text(_valor1,
                                 style: TextStyle(
-                                    color: Cores.deepPurple,
+                                    color: Cores.corDosValores,
                                     fontFamily: 'ConcertOne',
                                     fontSize: 12.0)),
                           ),
                           Icon(
                             Icons.shop_two_rounded,
-                            color: Cores.darkPurple,
+                            color: Cores.roxoEscuro,
                             size: 35,
                           ),
                           Text(
                             'novos \npedidos',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Cores.purple,
+                                color: Cores.roxoClaro,
                                 fontFamily: 'Marker_Felt',
                                 fontSize: 15.0),
                           )
@@ -147,20 +151,20 @@ class _DesafioLayoutState extends State<DesafioLayout> {
                             margin: EdgeInsets.only(left: 50),
                             child: Text(_valor2,
                                 style: TextStyle(
-                                    color: Cores.deepPurple,
+                                    color: Cores.corDosValores,
                                     fontFamily: 'ConcertOne',
                                     fontSize: 12.0)),
                           ),
                           Icon(
                             Icons.people_alt,
-                            color: Cores.darkPurple,
+                            color: Cores.roxoEscuro,
                             size: 35,
                           ),
                           Text(
                             'novos \nclientes',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Cores.purple,
+                                color: Cores.roxoClaro,
                                 fontFamily: 'Marker_Felt',
                                 fontSize: 15.0),
                           )
@@ -173,20 +177,20 @@ class _DesafioLayoutState extends State<DesafioLayout> {
                             margin: EdgeInsets.only(left: 50),
                             child: Text(_valor3,
                                 style: TextStyle(
-                                    color: Cores.deepPurple,
+                                    color: Cores.corDosValores,
                                     fontFamily: 'ConcertOne',
                                     fontSize: 12.0)),
                           ),
                           Icon(
                             Icons.location_city,
-                            color: Cores.darkPurple,
+                            color: Cores.roxoEscuro,
                             size: 35,
                           ),
                           Text(
                             'novas \ncidades',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Cores.purple,
+                                color: Cores.roxoClaro,
                                 fontFamily: 'Marker_Felt',
                                 fontSize: 15.0),
                           )
@@ -210,20 +214,20 @@ class _DesafioLayoutState extends State<DesafioLayout> {
                       Icon(
                         Icons.shop_two_rounded,
                         size: 55.0,
-                        color: Cores.darkPurple,
+                        color: Cores.roxoEscuro,
                       ),
                       Column(
                         children: [
                           Text('R\$ ${_salario}',
                               style: TextStyle(
-                                  color: Cores.purple,
+                                  color: Cores.roxoClaro,
                                   fontFamily: 'ConcertOne',
                                   fontSize: 32.0)),
                           Container(
                             margin: EdgeInsets.only(top: 10, left: 85),
                             child: Text('em novos pedidos',
                                 style: TextStyle(
-                                    color: Cores.darkPurple,
+                                    color: Cores.roxoEscuro,
                                     fontFamily: 'Marker_Felt',
                                     fontSize: 15.0)),
                           )
@@ -240,28 +244,80 @@ class _DesafioLayoutState extends State<DesafioLayout> {
           distance: 112.0,
           children: [
             ActionButton(
-              icon: Icon(Icons.format_size),
+              icon: Icon(
+                Icons.person_add,
+                color: Colors.grey.shade50,
+              ),
             ),
             ActionButton(
-              icon: Icon(Icons.insert_photo),
+              icon: Icon(
+                Icons.add_shopping_cart,
+                color: Colors.grey.shade50,
+              ),
             ),
             ActionButton(
-              icon: Icon(Icons.videocam),
+              icon: Icon(
+                Icons.person_add,
+                color: Colors.grey.shade50,
+              ),
             ),
           ],
         ),
         bottomNavigationBar: BottomNavyBar(
+          backgroundColor: Cores.corDeFundo,
           selectedIndex: _currentIndex,
           onItemSelected: (index) {
             setState(() => _currentIndex = index);
           },
           items: <BottomNavyBarItem>[
-            BottomNavyBarItem(title: Text('Item One'), icon: Icon(Icons.home)),
-            BottomNavyBarItem(title: Text('Item Two'), icon: Icon(Icons.apps)),
             BottomNavyBarItem(
-                title: Text('Item Three'), icon: Icon(Icons.chat_bubble)),
+                activeColor: Cores.corIconNav,
+                title: Text(
+                  'Home',
+                  style: TextStyle(
+                    color: Cores.corIconNav,
+                  ),
+                ),
+                icon: Icon(
+                  Icons.home,
+                  color: Cores.corIconNav,
+                )),
             BottomNavyBarItem(
-                title: Text('Item Four'), icon: Icon(Icons.settings)),
+                activeColor: Cores.corIconNav,
+                title: Text(
+                  'Novos pedidos',
+                  style: TextStyle(
+                    color: Cores.corIconNav,
+                  ),
+                ),
+                icon: Icon(
+                  Icons.shop_two_rounded,
+                  color: Cores.corIconNav,
+                )),
+            BottomNavyBarItem(
+                activeColor: Cores.corIconNav,
+                title: Text(
+                  'Novos clientes',
+                  style: TextStyle(
+                    color: Cores.corIconNav,
+                  ),
+                ),
+                icon: Icon(
+                  Icons.people_alt,
+                  color: Cores.corIconNav,
+                )),
+            BottomNavyBarItem(
+                activeColor: Cores.corIconNav,
+                title: Text(
+                  'Dados',
+                  style: TextStyle(
+                    color: Cores.corIconNav,
+                  ),
+                ),
+                icon: Icon(
+                  Icons.show_chart,
+                  color: Cores.corIconNav,
+                )),
           ],
         ),
       ),
